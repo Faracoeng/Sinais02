@@ -1,7 +1,7 @@
 function [m,t] = makecos(f,len)
     % MAKECOS Faz um sinal cossenoidal analógico
     % [m,t] = makecos(f,len)
-    %% f: frequência do cosseno em hertz
+    % f: frequência do cosseno em hertz
     % len: comprimento em segundos
     % m: o sinal cossenoidal
     % t: the time vector on which m is defined

@@ -51,7 +51,45 @@ am_plot(f,M,MR1,MR2,0.02);
 % Seguindo o procedimento descrito acima, verifique o aliasing e calcule a frequência dos
 % co-senos reconstruídos nos seguintes casos:
 
-% • Cosseno: 30Hz, Amostragem: 50Hz
+% • Cosseno: 30Hz, Amostragem: 50Hz     Exercicio 01
+% Parte01
+[m,t] = makecos(30);
+% Parte02
+[it1,ts1] = makeimp(50);
+ms1 = sampleit1(t,m,ts1);
+c1 = 'r'; % cor para o primeiro cenário
+smpl_plot(t,m,ts1,it1,ms1,c1);
+% Parte 03
+[it2,ts2] = makeimp(30);
+% Agora amostre o sinal original com a nova taxa de amostragem
+ms2 = sampleit1(t,m,ts2);
+% Plote todos os sinais para visualizer o processo de amostragem
+c2 = 'g'; % cor para o Segundo cenário
+smpl_plot(t,m,ts2,it2,ms2,c2);
+%Parte 04
+% Agora reconstrua as duas versões amostradas
+mr1 = interpsinc(ms1,ts1,t);
+mr2 = interpsinc(ms2,ts2,t);
+% Plote o sinal original e o sinal reconstruido para comparar
+recon_plot(t,m,ts1,ms1,mr1,c1);recon_plot(t,m,ts2,ms2,mr2,c2);
+% Parte 05
+% Agora vamos obter o espectro para examinar o aliasing
+% Faça o índice de frequência para plotagem
+f = (-5000/2):(1/2):(5000/2);
+% Use a função do anexo para calcular o espectro
+M = am_spectrum(m);
+MR1 = am_spectrum(mr1);
+MR2 = am_spectrum(mr2);
+% Plote o espectro para comparar
+am_plot(f,M,MR1,MR2,0.02);
+
+
 % • Cosseno: 40Hz, Amostragem: 15Hz
+[m,t] = makecos(40);
+[it1,ts1] = makeimp(15);
 % • Cosseno: 10Hz, Amostragem: 50Hz
+[m,t] = makecos(10);
+[it1,ts1] = makeimp(50);
 % • Cosseno: 20Hz, Amostragem: 40Hz
+[m,t] = makecos(20);
+[it1,ts1] = makeimp(40);
