@@ -3,6 +3,7 @@
 % Faça o sinal analógico inicial
 % (frequency 20 Hz)
 [m,t] = makecos(20);
+
 %% Parte 02
 
 %Vamos fazer um trem de impulso para amostrar nosso sinal
@@ -43,3 +44,14 @@ MR1 = am_spectrum(mr1);
 MR2 = am_spectrum(mr2);
 % Plote o espectro para comparar
 am_plot(f,M,MR1,MR2,0.02);
+
+
+%% Tarefa
+
+% Seguindo o procedimento descrito acima, verifique o aliasing e calcule a frequência dos
+% co-senos reconstruídos nos seguintes casos:
+
+% • Cosseno: 30Hz, Amostragem: 50Hz
+% • Cosseno: 40Hz, Amostragem: 15Hz
+% • Cosseno: 10Hz, Amostragem: 50Hz
+% • Cosseno: 20Hz, Amostragem: 40Hz
